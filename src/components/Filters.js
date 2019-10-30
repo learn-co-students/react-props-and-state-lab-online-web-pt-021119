@@ -2,14 +2,6 @@ import React from 'react'
 
 class Filters extends React.Component {
 
-//updatePetFilter = event => {
-//  this.props.onChangeType(event.target.value);
-//}
-//
-//onFindPetsClick = () => {
-//  this.props.fetchPets();
-//}
-
   render() {
     return (
       <div className="ui form">
