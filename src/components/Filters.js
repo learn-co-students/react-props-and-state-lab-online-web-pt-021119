@@ -2,7 +2,7 @@ import React from 'react'
 
 class Filters extends React.Component {
 
-onFindPetsClick = event => {
+updatePetFilter = event => {
   this.props.onChangeType(event.target.value);
 }
 
@@ -11,7 +11,7 @@ onFindPetsClick = event => {
       <div className="ui form">
         <h3>Animal type</h3>
         <div className="field">
-          <select name="type" id="type" onChange={ event => this.onFindPetsClick(event) }>
+          <select name="type" id="type" onChange={ event => this.updatePetFilter(event) }>
             <option value="all">All</option>
             <option value="cat">Cats</option>
             <option value="dog">Dogs</option>
