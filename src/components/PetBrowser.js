@@ -8,7 +8,7 @@ class PetBrowser extends React.Component {
     return <div className="ui cards">
       {this.props.pets.map(item => (
         <React.Fragment key={item.id}>
-          <Pet pet= { item }/>
+          <Pet pet= { item } onAdoptPet={ this.props.onAdoptPet }/>
         </React.Fragment>
       ))}
     </div>

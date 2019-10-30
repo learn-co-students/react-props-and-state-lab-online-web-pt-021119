@@ -38,6 +38,12 @@ class App extends React.Component {
     .then(json => this.updatePets(json))
   }
 
+  adoptPet = (petId) => {
+    for(let p of this.state.pets){
+      if(p.id === petId) p.isAdopted = true;
+    }
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -50,7 +56,7 @@ class App extends React.Component {
               <Filters onChangeType={ this.updateFilter } onFindPetsClick={ this.fetchingPets }/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser pets={ this.state.pets }/>
+              <PetBrowser pets={ this.state.pets } onAdoptPet={ this.adoptPet }/>
             </div>
           </div>
         </div>
