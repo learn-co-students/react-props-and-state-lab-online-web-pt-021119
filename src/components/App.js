@@ -30,8 +30,10 @@ class App extends React.Component {
   }
 
   fetchingPets = () => {
-    let url;
-    this.state.filters.type === 'all' ? url = '/api/pets' : url = `/api/pets?type=${ this.state.filters.type }`
+    console.log('FETCH!')
+    const url = (this.state.filters.type === 'all')
+      ? '/api/pets'
+      : `/api/pets?type=${ this.state.filters.type }`
 
     fetch(url)
     .then(response => response.json())
@@ -39,13 +41,13 @@ class App extends React.Component {
   }
 
   adoptPet = (petId) => {
-    this.state.pets.forEach(pet => pet.isAdopted = (pet.id === petId))
-    //this.setState(previousState => ({
-    //  pets: [
-    //    ...previousState.pets,
-    //      [previousState.pets[idx].isAdopted]: true
-    //    ],
-    //}));
+    const pets = this.state.pets.map(pet => {
+      pet.isAdopted = (petId === pet.id) ? true : pet.isAdopted;
+      return pet;
+    });
+    this.setState({
+      pets
+    });
   }
 
   render() {
