@@ -39,9 +39,13 @@ class App extends React.Component {
   }
 
   adoptPet = (petId) => {
-    for(let p of this.state.pets){
-      if(p.id === petId) p.isAdopted = true;
-    }
+    this.state.pets.forEach(pet => pet.isAdopted = (pet.id === petId))
+    //this.setState(previousState => ({
+    //  pets: [
+    //    ...previousState.pets,
+    //      [previousState.pets[idx].isAdopted]: true
+    //    ],
+    //}));
   }
 
   render() {
